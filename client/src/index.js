@@ -1,18 +1,12 @@
-import React, { createContext } from 'react';
-import App from './App';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import User from './chat/Users';
-import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css';
 
-export const Context = createContext(null);
-
 ReactDOM.render(
-  <Context.Provider value={{
-    user: new User()
-  }}>
+  <React.StrictMode>
     <App />
-  </Context.Provider>,
+  </React.StrictMode>,
   document.getElementById('root')
 );

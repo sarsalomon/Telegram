@@ -1,24 +1,20 @@
-import { observer } from 'mobx-react-lite';
-import React, { useContext } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { Context } from '..';
+import React from 'react';
+import {Routes, Route} from 'react-router-dom'
 import NotFounded from '../pages/NotFounded';
-import { authRoutes, publicRoutes } from '../routes';
+import { AuthRoutes, PublicRoutes } from '../routes';
 
-const AppRouter = observer(() => {
-    const {user} = useContext(Context)
-    console.log(user)
+const AppRouter = () => {
     return (
         <Routes>
-            {user.isAuth && authRoutes.map(({path, Component}) =>
+            {AuthRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} exact/>
             )}
-            {publicRoutes.map(({path, Component}) =>
+            {PublicRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} exact/>
             )}
-            <Route path='*' element={<NotFounded/>}/>
+            <Route path="*" element={<NotFounded/>}/>
         </Routes>
     );
-});
+};
 
 export default AppRouter;

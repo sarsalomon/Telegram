@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Chat = () => {
+const NotFounded = () => {
     return (
         <div>
-            Chat
+            404
         </div>
     );
 };
 
-export default Chat;
+export default NotFounded;

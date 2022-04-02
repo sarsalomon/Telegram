@@ -1,18 +1,19 @@
+:root {
+  --main-color: #212121;
+  --primary-color: #8774e1;
+  --dark-primary-color: #6a52da;
+  --primary-text-color: #fff;
+  --secondary-text-color: #aaaaaa;
+  --input-border-color: #2f2f2f;
+}
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background: rgb(86,204,242);
-  background: linear-gradient(90deg, rgba(86,204,242,1) 0%, rgba(47,128,237,1) 100%);
+  background: var(--main-color);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -25,177 +26,214 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.authCard {
-  width: 600px;
+
+/* GENERAL */
+
+.rowHeightMax {
+  height: 100vh;
+}
+
+.SecondaryTextColor {
+  color: var(--secondary-text-color);
+  font-weight: 450;
+}
+
+/* AUTH */
+
+.AuthCard {
+  background: transparent;
+  width: 400px;
+}
+
+.AuthLogo {
+  width: 170px;
+  height: 170px;
+}
+
+.AuthCountryDrop {
+  position: relative;
+}
+
+.AuthCountry {
+  background: transparent;
+  border: 1px solid var(--input-border-color);
+  color: var(--primary-text-color);
   border-radius: 10px;
-  box-shadow: 0px 11px 12px 7px rgba(34, 60, 80, 0.13);
+  width: 100%;
 }
 
-.container-e {
-  margin: 60px auto;
-  background: #fff;
-  padding: 0;
-  border-radius: 7px;
+.show>.btn-primary.dropdown-toggle {
+  background: transparent;
+}
+.btn-primary:focus{
+  box-shadow: none;
+}
+.btn-primary:active:focus{
+  box-shadow: none;
+}
+.show>.btn-primary.dropdown-toggle:focus{
+  border: 1px solid var(--primary-color);
+  box-shadow: none;
 }
 
-.profile-image {
+.AuthContryMenu {
+  background-color: var(--main-color);
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.AuthContryMenu .dropdown-item {
+  color: var(--primary-text-color);
+}
+
+.AuthContryMenu .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.AuthContryMenu::-webkit-scrollbar {
+  width: 6px;
+  background: var(--main-color);
+}
+
+.AuthContryMenu::-webkit-scrollbar-thumb {
+  background: var(--input-border-color);
+  border-radius: 8px;
+}
+
+.AuthFormGoup {
+  position: relative;
+  color: var(--primary-text-color);
+}
+
+.AuthInput {
+  background: transparent;
+  border: 1px solid var(--input-border-color);
+  color: var(--primary-text-color);
+  border-radius: 10px;
+}
+
+.AuthInput:hover, .AuthCountry:hover {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+}
+
+.AuthInput:focus {
+  background: transparent;
+  box-shadow: none;
+  color: var(--primary-text-color);
+  border: 2px solid var(--primary-color);
+  transition: .2s all;
+}
+
+.InBorder {
+  color: var(--secondary-text-color);
+  position: absolute;
+  background: var(--main-color);
+  transform: translate(0, -11px) scale(0.75);
+  padding: 0 6px;
+}
+
+.AuthFormGoup:hover .InBorder, .AuthCountryDrop:hover .InBorder {
+  color: var(--primary-color);
+}
+
+.AuthCheck {
+  cursor: pointer;
+  color: var(--primary-text-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* .AuthCheck .form-check-input{
+  position: absolute;
+  left: 70px;
+}
+.AuthCheck .form-check-label{
+  position: absolute;
+  left: 100px;
+} */
+
+.AuthCheck:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary-text-color);
+  border-radius: 10px;
+}
+
+.AuthCheck .form-check-input {
+  background: transparent;
+  border: 2px solid var(--secondary-text-color);
+  border-radius: 2px;
+  box-shadow: none;
+
+}
+.AuthCheck .form-check-input:checked[type=checkbox] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3e%3cpath fill=%27none%27 stroke=%27%23fff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%273%27 d=%27M6 10l3 3l6-6%27/%3e%3c/svg%3e");
+}
+.AuthCheck .form-check-input:checked {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+
+.AuthButton {
+  background: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 10px;
+  border:none;
+  position: relative;
+  overflow: hidden;
+}
+
+.AuthButton:hover {
+  background: var(--dark-primary-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.AuthButtonLink {
+  text-transform: uppercase;
+  font-size: 14px;
+  background: transparent;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+}
+
+.AuthButtonLink:hover {
+  background: rgba(135, 116, 225, 0.1);
+  color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.AuthButton > .ripple {
   width: 50px;
   height: 50px;
-  border-radius: 40px;
-}
-
-.settings-tray {
-  background: #eee;
-  padding: 10px 15px;
-  border-radius: 7px;
-}
-.settings-tray .no-gutters {
-  padding: 0;
-}
-.settings-tray--right {
-  float: right;
-}
-.settings-tray--right i {
-  margin-top: 10px;
-  font-size: 25px;
-  color: grey;
-  margin-left: 14px;
-  transition: 0.3s;
-}
-.settings-tray--right i:hover {
-  color: #74b9ff;
-  cursor: pointer;
-}
-
-.search-box {
-  background: #fafafa;
-  padding: 10px 13px;
-}
-.search-box .input-wrapper {
-  background: #fff;
-  border-radius: 40px;
-}
-.search-box .input-wrapper i {
-  color: grey;
-  margin-left: 7px;
-  vertical-align: middle;
-}
-
-input {
-  border: none;
-  border-radius: 30px;
-  width: 80%;
-}
-input::placeholder {
-  color: #e3e3e3;
-  font-weight: 300;
-  margin-left: 20px;
-}
-input:focus {
-  outline: none;
-}
-
-.friend-drawer {
-  padding: 10px 15px;
-  display: flex;
-  vertical-align: baseline;
-  background: #fff;
-  transition: 0.3s ease;
-}
-.friend-drawer--grey {
-  background: #eee;
-}
-.friend-drawer .text {
-  margin-left: 12px;
-  width: 70%;
-}
-.friend-drawer .text h6 {
-  margin-top: 6px;
-  margin-bottom: 0;
-}
-.friend-drawer .text p {
-  margin: 0;
-}
-.friend-drawer .time {
-  color: grey;
-}
-.friend-drawer--onhover:hover {
-  background: #74b9ff;
-  cursor: pointer;
-}
-.friend-drawer--onhover:hover p,
-.friend-drawer--onhover:hover h6,
-.friend-drawer--onhover:hover .time {
-  color: #fff !important;
-}
-
-hr {
-  margin: 5px auto;
-  width: 60%;
-}
-
-.chat-bubble {
-  padding: 10px 14px;
-  background: #eee;
-  margin: 10px 30px;
-  border-radius: 9px;
-  position: relative;
-  animation: fadeIn 1s ease-in;
-}
-.chat-bubble:after {
-  content: "";
   position: absolute;
-  top: 50%;
-  width: 0;
-  height: 0;
-  border: 20px solid transparent;
-  border-bottom: 0;
-  margin-top: -10px;
-}
-.chat-bubble--left:after {
-  left: 0;
-  border-right-color: #eee;
-  border-left: 0;
-  margin-left: -20px;
-}
-.chat-bubble--right:after {
-  right: 0;
-  border-left-color: #74b9ff;
-  border-right: 0;
-  margin-right: -20px;
+  background: red;
+  display: block;
+  content: "";
+  border-radius: 50%;
+  opacity: 1;
+  animation: .9s ease 1 forwards rippleffect;
 }
 
-@keyframes fadeIn {
+@keyframes rippleffect {
   0% {
-    opacity: 0;
-  }
-  100% {
+    transform: scale(1);
     opacity: 1;
   }
-}
-.offset-md-9 .chat-bubble {
-  background: #74b9ff;
-  color: #fff;
-}
-
-.chat-box-tray {
-  background: #eee;
-  display: flex;
-  align-items: baseline;
-  padding: 10px 15px;
-  align-items: center;
-  margin-top: 19px;
-  bottom: 0;
-}
-.chat-box-tray input {
-  margin: 0 10px;
-  padding: 6px 2px;
-}
-.chat-box-tray i {
-  color: grey;
-  font-size: 30px;
-  vertical-align: middle;
-}
-.chat-box-tray i:last-of-type {
-  margin-left: 25px;
+  50% {
+    transform: scale(10);
+    opacity: 0.375;
+  }
+  100% {
+    transform: scale(35);
+    opacity: 0;
+  }
 }

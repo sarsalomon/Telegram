@@ -1,5 +1,3 @@
-// GENERAL
 export const LOGIN_ROUTE        = '/'
-export const REGISTER_ROUTE     = '/register'
+export const REGISTRATION_ROUTE = '/registration'
 export const CHAT_ROUTE         = '/chat'
-// export const LOGIN_ROUTE        = '/'

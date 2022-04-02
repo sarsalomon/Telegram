@@ -1,21 +1,21 @@
-import Auth from "./pages/Auth"
-import Chat from "./pages/Chat"
-import { CHAT_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "./utils/consts"
+import Auth from "./pages/Auth";
+import Chat from "./pages/Chat";
+import { CHAT_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from "./utils/consts";
 
-export const authRoutes = [
+export const AuthRoutes = [
     {
         path: CHAT_ROUTE,
         Component: Chat
     }
 ]
 
-export const publicRoutes = [
+export const PublicRoutes = [
     {
         path: LOGIN_ROUTE,
         Component: Auth
     },
     {
-        path: REGISTER_ROUTE,
+        path: REGISTRATION_ROUTE,
         Component: Auth
     }
 ]
