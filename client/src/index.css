@@ -1,10 +1,12 @@
 :root {
   --main-color: #212121;
+  --chat-color: #0f0f0f;
   --primary-color: #8774e1;
   --dark-primary-color: #6a52da;
   --primary-text-color: #fff;
   --secondary-text-color: #aaaaaa;
   --input-border-color: #2f2f2f;
+  --color-borders: rgb(48,48,48);
 }
 
 * {
@@ -65,12 +67,15 @@ code {
 .show>.btn-primary.dropdown-toggle {
   background: transparent;
 }
+
 .btn-primary:focus{
   box-shadow: none;
 }
+
 .btn-primary:active:focus{
   box-shadow: none;
 }
+
 .show>.btn-primary.dropdown-toggle:focus{
   border: 1px solid var(--primary-color);
   box-shadow: none;
@@ -145,15 +150,6 @@ code {
   padding: 20px;
 }
 
-/* .AuthCheck .form-check-input{
-  position: absolute;
-  left: 70px;
-}
-.AuthCheck .form-check-label{
-  position: absolute;
-  left: 100px;
-} */
-
 .AuthCheck:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--primary-text-color);
@@ -167,15 +163,16 @@ code {
   box-shadow: none;
 
 }
+
 .AuthCheck .form-check-input:checked[type=checkbox] {
     background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3e%3cpath fill=%27none%27 stroke=%27%23fff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%273%27 d=%27M6 10l3 3l6-6%27/%3e%3c/svg%3e");
 }
+
 .AuthCheck .form-check-input:checked {
   background: var(--primary-color);
   border-color: var(--primary-color);
   box-shadow: none;
 }
-
 
 .AuthButton {
   background: var(--primary-color);
@@ -236,4 +233,201 @@ code {
     transform: scale(35);
     opacity: 0;
   }
+}
+
+
+/* CHAT */
+
+.LeftColumn {
+  position: relative;
+  background: var(--main-color);
+  padding: 0;
+}
+
+.ChatMenu {
+  display: flex;
+  height: 56px;
+  padding: 6px 16px 8px 5px;
+}
+
+.ChatMenuIconButton {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  margin: 0 20px;
+}
+
+.ChatMenuIconButton:hover {
+  background: var(--input-border-color);
+  border: none;
+}
+
+.ChatMenuIconButton::after {
+  border: none;
+}
+
+.ChatMenu .show>.btn-primary.dropdown-toggle:focus{
+  background: var(--input-border-color);
+  border: 1px solid var(--color-borders);
+  box-shadow: none;
+}
+
+.ChatMenuContent {
+  min-width: 20rem;
+  border-radius: 10px;
+  margin-top: 5px;
+  background: rgb(var(--main-color));
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255,255,255, 0.2);
+  backdrop-filter: blur(10px);
+  --webkit--backdrop-filter: blur(10px);
+}
+
+.ChatMenuContent .ChatMenuContentItem {
+  color: var(--primary-text-color);
+}
+
+.ChatMenuContentFooterText {
+  display: block;
+  color: var(--secondary-text-color);
+  text-align: center;
+}
+
+.ChatMenuSearch {
+  width: 100%;
+  margin-right: 20px;
+}
+
+.ChatMenuSearchFrom {
+  position: relative;
+}
+
+.ChatMenuSearchInputIcon {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  pointer-events: none;
+}
+
+.ChatMenuSearchInput {
+  border-radius: 40px;
+  background: var(--color-borders);
+  border: 2px solid var(--input-border-color);
+  padding: 10px 35px 10px;
+}
+
+.ChatMenuSearchInput:focus {
+  background: var(--color-borders);
+  border: 2px solid var(--primary-color);
+  outline: none;
+  box-shadow: none;
+}
+
+.ChatList {
+  height: 94vh;
+  overflow-y: auto;
+}
+
+.ChatList::-webkit-scrollbar {
+  width: 6px;
+  background: var(--main-color);
+}
+
+.ChatList::-webkit-scrollbar-thumb {
+  background: var(--input-border-color);
+  border-radius: 8px;
+}
+
+.ChatListItem {
+  display: flex;
+  background: transparent;
+  color: var(--primary-text-color);
+}
+
+.ChatListImg img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.ChatListContent {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.ChatListTitle {
+  overflow: hidden;
+  display: flex;
+  padding-bottom: 0;
+}
+
+.LastMessageTime {
+  margin-left: auto;
+}
+
+.time {
+  color: var(--secondary-text-color);
+  font-size: 0.75rem; /* 1rem = 16px */
+}
+
+.ChatListSubTitle {
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ChatListSubtitleText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 4px;
+}
+
+
+.MainColumn {
+  position: relative;
+  background: url('./assets/bg.png') var(--chat-color);
+  background-size: 650px;
+  padding: 0;
+  border-left: 1px solid var(--color-borders);
+  color: var(--primary-text-color);
+}
+
+.ChatInfo {
+  background: var(--main-color);
+  width: 100%;
+  height: 56px;
+  padding: 8px 20px;
+  align-items: center;
+  display: flex;
+  box-shadow: 0 2px 2px rgba(255, 255, 255, 0.1);
+}
+
+.ChatInfo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.ChatInfoMeta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ChatInfoTitle h5 {
+  margin: 10px 0 0;
+}
+
+.ChatInfoSubtitleText {
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
+}
+
+.ChatInfoIcons {
+  margin-left: auto;
 }
